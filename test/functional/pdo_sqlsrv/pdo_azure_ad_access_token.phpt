@@ -137,6 +137,8 @@ function connectAzureDB($accToken, $showException)
     try {
         $connectionInfo = "Database = $adDatabase; AccessToken = $accToken;";
         $conn = new PDO("sqlsrv:server = $adServer; $connectionInfo");
+        var_dump($adDatabase);
+        var_dump($accToken);
     } catch (PDOException $e) {
         if ($showException) {
             echo "Could not connect with Azure AD AccessToken after $maxAttempts retries.\n";
